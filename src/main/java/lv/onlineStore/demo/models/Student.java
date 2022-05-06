@@ -23,14 +23,14 @@ import lombok.ToString;
 @Setter 
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Student {
 	
 	@Setter(value=AccessLevel.NONE)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="Student_ID")
-	private long st_ID;
+	private int idStudent;
 	
 	@Column(name="Name_Student")
 	private String name;

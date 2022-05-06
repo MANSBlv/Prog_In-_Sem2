@@ -35,7 +35,7 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="Course_ID")
-	private long c_ID;
+	private int idCourse;
 	
 	
 	@Column(name="Title")

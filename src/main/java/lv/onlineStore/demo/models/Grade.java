@@ -28,7 +28,7 @@ public class Grade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="Grade_ID")
-	private long g_ID;
+	private int idGrade;
 	
 	@Column(name="Value")
 	private int value;

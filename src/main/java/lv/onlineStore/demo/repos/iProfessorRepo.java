@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import lv.onlineStore.demo.models.Professor;
 
-public interface iProfessorRepo extends CrudRepository<Professor, Long> {
+public interface iProfessorRepo extends CrudRepository<Professor, Integer> {
 
 }

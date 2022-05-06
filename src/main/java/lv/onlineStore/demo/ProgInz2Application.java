@@ -47,6 +47,11 @@ public class ProgInz2Application {
 				Course cour2 = new Course("Breaking bad", 4, new ArrayList<>(Arrays.asList(prof1,prof2)));
 				courseRepo.save(cour1);
 				courseRepo.save(cour2);
+				prof2.addSubject(cour2);
+				prof2.addSubject(cour1);
+				profRepo.save(prof2);
+				prof1.addSubject(cour1);
+				profRepo.save(prof1);
 				
 				gradeRepo.save(new Grade(10, stud1, cour1));
 				gradeRepo.save(new Grade(3, stud1, cour2));

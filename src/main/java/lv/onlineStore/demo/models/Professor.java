@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,7 +34,8 @@ public class Professor {
 	@Column(name="Professor_ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long p_ID;
+	private int idProfessor;
+	
 	@Column(name="Name_Professor")
 	private String name;
 	
@@ -48,6 +51,8 @@ public class Professor {
 	private Course course;
 	*/
 	@ManyToMany
+	@JoinTable(joinColumns =@JoinColumn(name = "Professor_ID"),inverseJoinColumns = @JoinColumn(name = "Course_ID") ) //subjectss = new ArrayList<Course>();
+	@ToString.Exclude
 	private Collection<Course> subjectss = new ArrayList<Course>();
 	
 	
@@ -58,6 +63,10 @@ public class Professor {
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
+	}
+	
+	public void addSubject(Course course) {
+		subjectss.add(course);
 	}
 	
 	
