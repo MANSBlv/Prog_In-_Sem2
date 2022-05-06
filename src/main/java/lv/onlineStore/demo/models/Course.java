@@ -1,6 +1,7 @@
 package lv.onlineStore.demo.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 @Table
@@ -33,6 +35,7 @@ public class Course {
 	@Column(name="Course_ID")
 	private long c_ID;
 	
+	
 	@Column(name="Title")
 	private String title;
 	
@@ -49,7 +52,7 @@ public class Course {
 	
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
-	private ArrayList<Grade> grades;
+	private Collection<Grade> grades;
 	
 	
 	

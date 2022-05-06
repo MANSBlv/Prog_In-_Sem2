@@ -1,5 +1,9 @@
 package lv.onlineStore.demo.repos;
 
-public interface iProfessorRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.onlineStore.demo.models.Professor;
+
+public interface iProfessorRepo extends CrudRepository<Professor, Long> {
 
 }

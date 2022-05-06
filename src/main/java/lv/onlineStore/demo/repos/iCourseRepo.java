@@ -1,5 +1,9 @@
 package lv.onlineStore.demo.repos;
 
-public interface iCourseRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.onlineStore.demo.models.Course;
+
+public interface iCourseRepo extends CrudRepository<Course, Long> {
 
 }

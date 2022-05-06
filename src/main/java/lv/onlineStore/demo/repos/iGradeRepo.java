@@ -1,5 +1,9 @@
 package lv.onlineStore.demo.repos;
 
-public interface iGradeRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.onlineStore.demo.models.Grade;
+
+public interface iGradeRepo extends CrudRepository<Grade, Long> {
 
 }
