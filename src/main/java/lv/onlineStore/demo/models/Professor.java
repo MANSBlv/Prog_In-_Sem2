@@ -1,12 +1,18 @@
 package lv.onlineStore.demo.models;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.Collection;
+
+//import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -37,10 +43,12 @@ public class Professor {
 	private String degree;
 	
 	//mappedBy vienmer janorada uz mainigo nosaukum
-	@OneToOne(mappedBy ="professor" )
+	/*@OneToOne(mappedBy ="professor" )
 	@ToString.Exclude
 	private Course course;
-	
+	*/
+	@ManyToMany
+	private Collection<Course> subjectss = new ArrayList<Course>();
 	
 	
 	

@@ -1,9 +1,14 @@
 package lv.onlineStore.demo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 import lv.onlineStore.demo.models.Course;
 import lv.onlineStore.demo.models.Grade;
@@ -21,7 +26,7 @@ public class ProgInz2Application {
 		SpringApplication.run(ProgInz2Application.class, args);
 	}
 	
-	@Bean
+	//@Bean
 	public CommandLineRunner runner(iProfessorRepo profRepo, iStudentRepo studRepo,
 			iCourseRepo courseRepo, iGradeRepo gradeRepo) {
 		return new CommandLineRunner() {
@@ -38,8 +43,8 @@ public class ProgInz2Application {
 				studRepo.save(stud1);
 				studRepo.save(stud2);
 				
-				Course cour1 = new Course("Hacking", 4, prof2);
-				Course cour2 = new Course("Breaking bad", 4, prof1);
+				Course cour1 = new Course("Hacking", 4, new ArrayList<>(Arrays.asList(prof2)));
+				Course cour2 = new Course("Breaking bad", 4, new ArrayList<>(Arrays.asList(prof1,prof2)));
 				courseRepo.save(cour1);
 				courseRepo.save(cour2);
 				

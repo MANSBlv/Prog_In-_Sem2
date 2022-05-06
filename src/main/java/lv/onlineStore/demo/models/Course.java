@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -45,9 +47,15 @@ public class Course {
 	
 	
 	//@Column(name="Professor")
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="Professor_ID")
 	private Professor professor;
+	*/
+	
+	
+	@ManyToMany(mappedBy = "subjectss")
+	private Collection<Professor> professors = new ArrayList<Professor>();
+	
 	
 	
 	@OneToMany(mappedBy = "course")
@@ -57,11 +65,11 @@ public class Course {
 	
 	
 	
-	public Course(String title, int creditPoint, Professor professor) {
+	public Course(String title, int creditPoint, Collection<Professor> professors) {
 		
 		this.title = title;
 		this.creditPoint = creditPoint;
-		this.professor = professor;
+		this.professors = professors;
 	}
 	
 	
